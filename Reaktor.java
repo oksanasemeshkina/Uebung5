@@ -1,5 +1,10 @@
 package ws2014.tpe.gruppe_1415349_1410206.uebung5;
 
+/**
+ * 
+ *
+ *
+ */
 public class Reaktor extends Thread implements Runnable {
 	WasserKreisLauf kreis;
 	boolean run;
@@ -9,6 +14,9 @@ public class Reaktor extends Thread implements Runnable {
 		kreis = new WasserKreisLauf();
 	}
 
+	/**
+ * 
+ */
 	public void run() {
 		while (run) {
 			kreis.reaktor.temperatur += 1;
