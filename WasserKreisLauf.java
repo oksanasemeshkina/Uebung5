@@ -8,6 +8,8 @@ package ws2014.tpe.gruppe_1415349_1410206.uebung5;
 public class WasserKreisLauf {
 	WasserElement reaktor;
 	WasserElement kuehlung;
+	static WasserElement rhein = new WasserElement();
+	Waermetauscher tauscher=new Waermetauscher();
 
 	/**
 	 * 
@@ -32,7 +34,15 @@ public class WasserKreisLauf {
 	 * 
 	 */
 	public void pump() {
-		kuehlung = reaktor;
-		reaktor = reaktor.next;
+		kuehlenReaktor();
+		naechstesElementReaktor();
+		kuehlenWasser();
+		naechstesElementWasser();
+	}
+	private void kuehlenReaktor(){
+		this.tauscher.waermeTauschen(kuehlung, reaktor);
+	}
+	private void kuehlenWasser(){
+		this.tauscher.waermeTauschen(rhein, kuehlung);
 	}
 }
