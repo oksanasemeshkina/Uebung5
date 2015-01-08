@@ -17,9 +17,13 @@ public class Pumpe extends Thread {
 	 * 
 	 */
 	public void run() {
-		while (run) {
+		while (run&&runAll) {
 			kreis.pump();
-			sleep(1000 / pumpkoeffizient);
+			try {
+				sleep(1000 / pumpkoeffizient);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
