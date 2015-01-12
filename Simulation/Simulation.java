@@ -7,6 +7,11 @@ import ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk.Waermetauscher;
 import ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk.WasserElement;
 import ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk.WasserKreisLauf;
 
+/**
+ * Die Klasse stellt vor, wie alle beschriebene Prozesse in einem Kernkraftwerk
+ * zusammenlaufen
+ *
+ */
 public class Simulation {
 
 	public static void main(String[] args) {

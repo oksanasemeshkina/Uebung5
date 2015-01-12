@@ -4,9 +4,11 @@ import ws2014.tpe.gruppe_1415349_1410206.uebung5.Token.Token;
 
 public class Kraftwerk implements Runnable {
 	/**
- * 
- * 
- */
+	 * Die Klasse stellt Funktionalität eines Atomkraftwerks vor,das
+	 * hauptsetzlich aus einem Reaktor, einem Kühlkreislauf mit Pumpe und zwei
+	 * Wäarmetauschern besteht.
+	 * 
+	 */
 
 	private final Pumpe pumpe;
 	private final WasserKreisLauf wasserKreislauf;
@@ -14,6 +16,15 @@ public class Kraftwerk implements Runnable {
 	private final Waermetauscher reaktorWaermetauscher;
 	private final Waermetauscher flussWaermetauscher;
 
+	/**
+	 * Der Konstruktor erzeugt neues Kraftwerk
+	 * 
+	 * @param pumpe
+	 * @param wasserKreislauf
+	 * @param reaktor
+	 * @param reaktorWaermetauscher
+	 * @param flussWaermetauscher
+	 */
 	public Kraftwerk(Pumpe pumpe, WasserKreisLauf wasserKreislauf,
 			Reaktor reaktor, Waermetauscher reaktorWaermetauscher,
 			Waermetauscher flussWaermetauscher) {
@@ -26,26 +37,54 @@ public class Kraftwerk implements Runnable {
 
 	}
 
+	/**
+	 * Gibt Pumpe zurück
+	 * 
+	 * @return pumpe
+	 */
 	public Pumpe getPumpe() {
 		return pumpe;
 	}
 
+	/**
+	 * Gibt ein Element von WasserKreisLauf zurück
+	 * 
+	 * @return wasserKreislauf
+	 */
 	public WasserKreisLauf getWasserKreisLauf() {
 		return wasserKreislauf;
 	}
 
+	/**
+	 * Gibt Objekt Reaktor zurück
+	 * 
+	 * @return reaktor
+	 */
 	public Reaktor getReaktor() {
 		return reaktor;
 	}
 
+	/**
+	 * Gibt Waermetauscher, der sich im Reakor befindet
+	 * 
+	 * @return reaktorWaermetauscher
+	 */
 	public Waermetauscher getReaktorWaermetauscher() {
 		return reaktorWaermetauscher;
 	}
 
+	/**
+	 * Gibt Waermetauscher, der sich vor Rhein befindet.
+	 * 
+	 * @return flussWaermetauscher
+	 */
 	public Waermetauscher getFlussWaermetauscher() {
 		return flussWaermetauscher;
 	}
 
+	/**
+	 * Methode, die neue Temperaturen nach der Kühlung setzt
+	 */
 	public void waermeTauschen() {
 		synchronized (Token.durchgang) {
 			reaktorWaermetauscher.waermeTauschen(
@@ -59,6 +98,11 @@ public class Kraftwerk implements Runnable {
 		}
 	}
 
+	/**
+	 * Die Methode ist vom Interface Runnable implementiert. Die startet 2
+	 * Threads (vom Reaktor und von Pumpe), die zeigen, wie das Kraftwerk
+	 * funktioniert.
+	 */
 	public synchronized void run() {
 		int zaehler = 0;
 		Thread reaktorThread = new Thread(reaktor);
