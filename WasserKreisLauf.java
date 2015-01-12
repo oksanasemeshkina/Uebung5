@@ -1,48 +1,56 @@
 package ws2014.tpe.gruppe_1415349_1410206.uebung5;
-
+import java.util.ArrayList;
 /**
  * 
  * 
  *
  */
 public class WasserKreisLauf {
-	WasserElement reaktor;
-	WasserElement kuehlung;
-	static WasserElement rhein = new WasserElement();
-	Waermetauscher tauscher=new Waermetauscher();
+	
+private ArrayList<WasserElement> wasserKreisLauf = new ArrayList<>(12);
+	
+	private int reaktorPosition = 0;
+	private int flusswasserPosition = 11;
+	
+	public WasserKreisLauf(){
+		
+		for(int i = 0; i < 12; i++) {
+			
+			wasserKreisLauf.add(new WasserElement());
+		}	
+	}
 
-	/**
-	 * 
-	 */
-	public WasserKreisLauf() {
-		reaktor = new WasserElement();
-		// q= hlifselement zur realisierung des Kreises
-		WasserElement p = reaktor;
+	public ArrayList<WasserElement> getWasserKreisLauf() {
+		return wasserKreisLauf;
+	}
+	
+	public int getReaktorPosition() {
+		return reaktorPosition;
+	}
 
-		for (int index = 0; index < 11; index++) {
-			WasserElement q = new WasserElement();
-			p.next = q;
-			p = q;
-			if (index == 5) {
-				kuehlung = q;
-			}
+	public void setReaktorPosition(int reaktorPosition) {
+		this.reaktorPosition = reaktorPosition;
+	}
+
+	public int getFlusswasserPosition() {
+		return flusswasserPosition;
+	}
+
+	public void setFlusswasserPosition(int flusswasserPosition) {
+		this.flusswasserPosition = flusswasserPosition;
+	}
+	
+	public synchronized void pumpen(){
+		if(reaktorPosition==11 ||flusswasserPosition==11 ){
+			reaktorPosition=0;
+			flusswasserPosition=0;
 		}
-		p.next = reaktor;
+		reaktorPosition++;
+		flusswasserPosition++;
+		
+		
+		
 	}
-
-	/**
-	 * 
-	 */
-	public void pump() {
-		kuehlenReaktor();
-		naechstesElementReaktor();
-		kuehlenWasser();
-		naechstesElementWasser();
-	}
-	private void kuehlenReaktor(){
-		this.tauscher.waermeTauschen(kuehlung, reaktor);
-	}
-	private void kuehlenWasser(){
-		this.tauscher.waermeTauschen(rhein, kuehlung);
-	}
+	
 }
+	
