@@ -8,19 +8,22 @@ import ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk.WasserElement;
 import ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk.WasserKreisLauf;
 
 /**
- * Die Klasse stellt vor, wie alle beschriebene Prozesse in einem Kernkraftwerk
- * zusammenlaufen
+ * Simulation des Kraftwers, erstellt die Objekte und startet den Kraftwers
+ * Thread, der dann den rest erledigt
  *
  */
 public class Simulation {
 
 	public static void main(String[] args) {
 		WasserKreisLauf kreis = new WasserKreisLauf();
-		Pumpe pumpe = new Pumpe(1, kreis);
+
 		Reaktor reaktor = new Reaktor(new WasserElement());
+
 		Waermetauscher waermetauscher1 = new Waermetauscher();
 		Waermetauscher waermetauscher2 = new Waermetauscher();
 
+		Pumpe pumpe = new Pumpe(1, kreis, reaktor, waermetauscher1,
+				waermetauscher2);
 		Kraftwerk kraftwerk = new Kraftwerk(pumpe, kreis, reaktor,
 				waermetauscher1, waermetauscher2);
 
