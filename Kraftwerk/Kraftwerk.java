@@ -5,8 +5,8 @@ import ws2014.tpe.gruppe_1415349_1410206.uebung5.Token.Token;
 public class Kraftwerk implements Runnable {
 	/**
 	 * Die Klasse stellt Funktionalität eines Atomkraftwerks vor,das
-	 * hauptsetzlich aus einem Reaktor, einem Kühlkreislauf mit Pumpe und zwei
-	 * Wäarmetauschern besteht.
+	 * hauptsetzlich aus einem Reaktor, einem Kühlkreislauf mit einer Pumpe und
+	 * zwei Wäarmetauschern besteht.
 	 * 
 	 */
 
@@ -83,22 +83,6 @@ public class Kraftwerk implements Runnable {
 	}
 
 	/**
-	 * Methode, die neue Temperaturen nach der Kühlung setzt
-	 */
-	public void waermeTauschen() {
-		synchronized (Token.durchgang) {
-			reaktorWaermetauscher.waermeTauschen(
-					wasserKreislauf.getWasserKreisLauf().get(
-							wasserKreislauf.getReaktorPosition()),
-					reaktor.getElement());
-			flussWaermetauscher.waermeTauschen(
-					wasserKreislauf.getWasserKreisLauf().get(
-							wasserKreislauf.getFlusswasserPosition()),
-					new WasserElement());
-		}
-	}
-
-	/**
 	 * Die Methode ist vom Interface Runnable implementiert. Die startet 2
 	 * Threads (vom Reaktor und von Pumpe), die zeigen, wie das Kraftwerk
 	 * funktioniert.
@@ -112,10 +96,7 @@ public class Kraftwerk implements Runnable {
 		pumpenThread.start();
 
 		while (zaehler < 20 && reaktor.laeuft()) {
-			waermeTauschen();
-			System.out.println("Temperatur Reaktor: " + reaktor.getTemp()
-					+ ", " + "Temperatur Rueckfluss in Rhein: "
-					+ flussWaermetauscher.getTempAusgang());
+
 			zaehler++;
 
 			try {
