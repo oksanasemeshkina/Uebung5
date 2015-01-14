@@ -17,8 +17,10 @@ public class Waermetauscher {
 	 */
 	public void waermeTauschen(WasserElement kuehlung, WasserElement zuKuehlen) {
 		synchronized (Token.tausch) {
-			zuKuehlen.setTemperatur(berechne(kuehlung, zuKuehlen));
-			kuehlung.setTemperatur(berechne(kuehlung, zuKuehlen));
+			int neuTemp=0;
+			neuTemp =berechne(kuehlung, zuKuehlen);
+			zuKuehlen.setTemperatur(neuTemp);
+			kuehlung.setTemperatur(neuTemp);
 		}
 	}
 
