@@ -17,7 +17,7 @@ public class WasserElement {
 	}
 
 	/**
-	 * Setzr neue Temperatur in Wasserelement
+	 * Setzt neue Temperatur in Wasserelement
 	 * @param temp
 	 */
 	public void setTemperatur(int temp) {

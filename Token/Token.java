@@ -1,9 +1,8 @@
 package ws2014.tpe.gruppe_1415349_1410206.uebung5.Token;
 
 /**
- * Die Klasse erzeugt beide Tokens Durchgang und Tausch, um Threads im Kraftwerk
- * zu synchronisieren.
- *
+ * Die Klasse zum erzeugen der Tokens Durchgang und Tausch und zur besseren
+ * deklaration der Tokens
  */
 
 public class Token {

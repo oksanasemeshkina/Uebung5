@@ -52,7 +52,9 @@ public class Reaktor extends Thread implements Runnable {
 	}
 
 	/**
-	 * Die Methode stellt fest, wie lande Threads laufen dürfen
+	 * Die Methode stellt fest, ob der Reaktor noch läuft, oder ob die
+	 * Kernschmelze bereits eingetreten ist und wir das wunderschöne renaissance
+	 * Schloss (mit einem Fenster mehr als Versailles) umsonst abgerissen haben.
 	 * 
 	 * @return
 	 */
