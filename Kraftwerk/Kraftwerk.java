@@ -1,7 +1,5 @@
 package ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk;
 
-import ws2014.tpe.gruppe_1415349_1410206.uebung5.Token.Token;
-
 public class Kraftwerk implements Runnable {
 	/**
 	 * Die Klasse stellt Funktionalität eines Atomkraftwerks vor,das
@@ -25,61 +23,18 @@ public class Kraftwerk implements Runnable {
 	 * @param reaktorWaermetauscher
 	 * @param flussWaermetauscher
 	 */
-	public Kraftwerk(Pumpe pumpe, WasserKreisLauf wasserKreislauf,
-			Reaktor reaktor, Waermetauscher reaktorWaermetauscher,
-			Waermetauscher flussWaermetauscher) {
+	public Kraftwerk() {
 
-		this.pumpe = pumpe;
-		this.wasserKreislauf = wasserKreislauf;
-		this.reaktor = reaktor;
-		this.reaktorWaermetauscher = reaktorWaermetauscher;
-		this.flussWaermetauscher = flussWaermetauscher;
+		wasserKreislauf = new WasserKreisLauf();
 
-	}
+		reaktor = new Reaktor(new WasserElement());
 
-	/**
-	 * Gibt Pumpe zurück
-	 * 
-	 * @return pumpe
-	 */
-	public Pumpe getPumpe() {
-		return pumpe;
-	}
+		reaktorWaermetauscher = new Waermetauscher();
+		flussWaermetauscher = new Waermetauscher();
 
-	/**
-	 * Gibt ein Element von WasserKreisLauf zurück
-	 * 
-	 * @return wasserKreislauf
-	 */
-	public WasserKreisLauf getWasserKreisLauf() {
-		return wasserKreislauf;
-	}
+		pumpe = new Pumpe(1, wasserKreislauf, reaktor, reaktorWaermetauscher,
+				flussWaermetauscher);
 
-	/**
-	 * Gibt Objekt Reaktor zurück
-	 * 
-	 * @return reaktor
-	 */
-	public Reaktor getReaktor() {
-		return reaktor;
-	}
-
-	/**
-	 * Gibt Waermetauscher, der sich im Reakor befindet
-	 * 
-	 * @return reaktorWaermetauscher
-	 */
-	public Waermetauscher getReaktorWaermetauscher() {
-		return reaktorWaermetauscher;
-	}
-
-	/**
-	 * Gibt Waermetauscher, der sich vor Rhein befindet.
-	 * 
-	 * @return flussWaermetauscher
-	 */
-	public Waermetauscher getFlussWaermetauscher() {
-		return flussWaermetauscher;
 	}
 
 	/**
