@@ -13,7 +13,6 @@ public class Pumpe extends Thread {
 	private final Waermetauscher flussWaermetauscher;
 	private WasserKreisLauf kreis;
 	private int pumpkoeffizient;
-	private boolean run = true;
 	public Kraftwerk kraftwerk;
 
 	/**
@@ -99,7 +98,7 @@ public class Pumpe extends Thread {
 	 * Thread von der Pumpe funktioniert.
 	 */
 	public synchronized void run() {
-		while (run) {
+		while (reaktor.laeuft()) {
 			pumpen();
 			ausgabe();
 

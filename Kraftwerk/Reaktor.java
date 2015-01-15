@@ -68,7 +68,7 @@ public class Reaktor extends Thread implements Runnable {
 	 */
 	public void run() {
 
-		while (run) {
+		while (laeuft()) {
 			try {
 				element.setTemperatur(element.getTemperatur() + 1);
 				if (element.getTemperatur() >= KRITISCHE_TEMP) {
