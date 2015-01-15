@@ -13,7 +13,6 @@ public class WasserKreisLauf {
 
 	private int reaktorPosition;
 	private int flusswasserPosition;
-	private Kraftwerk kraftwerk;
 
 	/**
 	 * Konstruktor, der genau 12 Wasserelemente erzeugt und festlegt, welches

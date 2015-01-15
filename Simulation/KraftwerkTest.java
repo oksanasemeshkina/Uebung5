@@ -20,8 +20,7 @@ public class KraftwerkTest {
 	Waermetauscher waermetauscher2 = new Waermetauscher();
 
 	Pumpe pumpe = new Pumpe(1, kreis, reaktor, waermetauscher1, waermetauscher2);
-	Kraftwerk kraftwerk = new Kraftwerk(pumpe, kreis, reaktor, waermetauscher1,
-			waermetauscher2);
+	Kraftwerk kraftwerk = new Kraftwerk();
 	WasserElement element1 = new WasserElement();
 	WasserElement element2 = new WasserElement();
 	WasserElement element3 = new WasserElement();

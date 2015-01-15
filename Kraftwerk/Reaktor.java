@@ -66,7 +66,7 @@ public class Reaktor extends Thread implements Runnable {
 	 * Die Methode ist vom Interface Runnable implementiert. Sie beschreibt, wie
 	 * Thread vom Reaktor laufen soll
 	 */
-	public synchronized void run() {
+	public void run() {
 
 		while (run) {
 			try {

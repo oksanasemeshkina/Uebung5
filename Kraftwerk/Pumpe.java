@@ -1,7 +1,5 @@
 package ws2014.tpe.gruppe_1415349_1410206.uebung5.Kraftwerk;
 
-import ws2014.tpe.gruppe_1415349_1410206.uebung5.Token.Token;
-
 /**
  * Die Klasse stellt die Funktionalität der Pumpe dar. Sie sorgt dafür, dass das
  * Wasser im Wasserkreislauf kontinuierlich gepumpt wird und dass die
@@ -76,15 +74,14 @@ public class Pumpe extends Thread {
 	 * erzeugt
 	 */
 	public void waermeTauschen() {
-		synchronized (Token.durchgang) {
-			reaktorWaermetauscher.waermeTauschen(kreis.getWasserKreisLauf()
-					.get(kreis.getReaktorPosition()), reaktor.getElement());
-			flussWaermetauscher.waermeTauschen(
-					kreis.getWasserKreisLauf().get(
-							kreis.getFlusswasserPosition()),
-			// Hier wird immer ein neues Wasserelement erzeugt(Weil Flusswasser)
-					new WasserElement());
-		}
+		reaktorWaermetauscher.waermeTauschen(
+				kreis.getWasserKreisLauf().get(kreis.getReaktorPosition()),
+				reaktor.getElement());
+		flussWaermetauscher.waermeTauschen(
+				kreis.getWasserKreisLauf().get(kreis.getFlusswasserPosition()),
+				// Hier wird immer ein neues Wasserelement erzeugt(Weil
+				// Flusswasser)
+				new WasserElement());
 	}
 
 	/**
