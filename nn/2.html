@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta http-equiv="Content-Type" content = "text/html; charset=UTF-8">
+        <title>IBDB</title>
+        <style type="text/css">
+            * {background-color: rgb(153, 217,234); font-family: Helvetica;font-weight: bold; }
+            h1 {font-size: 22px; text-align: center; font-weight: bold;}
+
+            .blaueBuchstaben {color: rgb(63, 72, 204); font-weight: bold;}
+
+ 	    .grosseBuchstaben {font-size: 72px;}
+
+	    .bildRahmen {border-color:rgb(63, 72, 204); 
+	                 background-color: rgb(0, 0, 0); 
+                         border-width: 10px; 
+                         border-style: solid; 
+                         margin: 20px auto;}
+	    .bildLage{ text-align: center;}
+	    .links{margin: 50px;
+                   height: 245px;
+                   width: 30%;
+		   text-align:right;
+                   float:left;}
+            .rechts{margin: 50px;
+                   height: 245px;
+                   width: 30%;
+	            text-align:left;
+                    float:right;}
+	    .buttons {text-align:center;
+                      width: 170px;
+} 
+            button {font-size:18px;
+                    background-color: rgb(0, 162, 232);
+                    width:170px;
+                    height:80px;
+	            border: 1px solid; 
+	            border-color:rgb(63, 72, 204);
+            }
+ button:hover{background-color:rgb(63, 72, 204);}
+        </style>
+
+    </head>
+
+    <body>
+    
+        <h1>
+            <span class="blaueBuchstaben">I</span>nternet <span class="blaueBuchstaben">B</span>ook <span class="blaueBuchstaben">D</span>ata<span class="blaueBuchstaben">b</span>ase
+        </h1>
+
+
+       <div class="bildLage">
+        <span class="grosseBuchstaben blaueBuchstaben links">WE</span>
+        <img class="bildRahmen" src="http://www.livendo.de/files/buch-mit-herz_web.png" width="400" height="245" >
+        <span class="grosseBuchstaben blaueBuchstaben rechts">Books</span>
+	</div>
+        
+        <div class="buttons bildRahmen">
+            <form action ="/book_entry.html">
+                <button type="submit" name="Start" >Buch anlegen</button><br>
+            </form>
+            <button type="submit" name="Start">Login</button><br>
+            <button type="submit" name="Start">Registrieren</button><br>
+        </div>
+        
+        
+    </body>
+
+</html>
